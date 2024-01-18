@@ -7,7 +7,7 @@ class Program
     {
         // Console.WriteLine("Hello Prep2 World!");
 
-        // creates a blank line to start the program
+        // Creates a blank line to start the program
         Console.WriteLine("");
 
         // Ask the user for their grade percentage and save as an Int variable
