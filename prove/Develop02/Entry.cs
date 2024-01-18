@@ -4,8 +4,8 @@ public class Entry
     public string _promptText;
     public string _entryText;
 
-    public void Display()
+    public void DisplayEntry()
     {
-        
+        Console.WriteLine($"Date: {_date} - Prompt: {_promptText}\n{_entryText}");
     }
 }
