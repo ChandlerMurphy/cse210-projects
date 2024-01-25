@@ -2,7 +2,7 @@ public class Scripture {
     private Reference _reference; 
     private List<Word> _words;
 
-    Scripture(Reference Reference, string text) 
+    public Scripture(Reference Reference, string text) 
     {
 
     }
@@ -19,6 +19,6 @@ public class Scripture {
 
     public bool IsCommpletelyHidden()
     {
-        return true;
+        return false;
     }
 }
