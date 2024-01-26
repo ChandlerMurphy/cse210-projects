@@ -1,5 +1,9 @@
 using System;
 
+
+// My programm meets all the core requirements. It exceeds them by the additon of the ScriptureGenerator class I added. 
+// This class randomly gives the program some scriptures to display for the user to memorize. It also follows the rules of encapsulation as taught in class this week. 
+
 class Program
 {
     static void Main(string[] args)
@@ -8,8 +12,16 @@ class Program
 
         // Create starting variables and Class instances
         string userInput = "";
-        Reference reference = new Reference("Proverbs", 3, 5, 6);
-        Scripture scripture = new Scripture(reference, "Trust in the Lord with all thine heart and lean not on thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.");
+        ScriptureGenerator scriptureGenerator = new ScriptureGenerator();
+
+        // Call the GetRandomNumber method and save the number to a variable becasue we need to pass the exact number to two methods.
+        int number = scriptureGenerator.GetRandomNumber();
+
+        // Create a new Reference class instance calling the GetRandomReference() method because it returns a reference object.
+        Reference Reference = scriptureGenerator.GetRandomReference(number);
+
+        // Create a new Scripture class reference and use its constructor to make a Scripture object.
+        Scripture scripture = new Scripture(Reference, scriptureGenerator.GetRandomScripture(number));
 
         // Create a while loop that runs the program until the user quits or the scripture being memorized is all hidden.
         while (userInput != "quit" && true != scripture.IsCommpletelyHidden())
@@ -18,7 +30,7 @@ class Program
             Console.Clear();
 
             // Call the Scripture class method to hide pieces of the string before displaying the (hide three at a time).
-            scripture.HideRandomWords(3); 
+            scripture.HideRandomWords(); 
 
             // Call the "GetDisplayText()" method from the scripture class to display the scripture reference and text.
             scripture.GetDisplayText();

@@ -32,8 +32,9 @@ public class Scripture {
     }
 
     // This method tells which Word objects in our list of object to hide by telling randomly assigning an index Word object the isHidden=true property.
-    public void HideRandomWords(int numberToHide) 
+    public void HideRandomWords() 
     {
+        // Loop counter will skip over the first instance of the loop because the first instance is the first time viewing it.
         if (_loopCounter <= 0)
         {
             _loopCounter ++;
@@ -42,6 +43,7 @@ public class Scripture {
         {
             _loopCounter ++;
 
+            // Created random class to help randomly choose indexes to give the isHidden attribute to.
             Random _rand = new Random();
             int _randomIndex1 = _rand.Next(0, _words.Count());
             int _randomIndex2 = _rand.Next(0, _words.Count());
