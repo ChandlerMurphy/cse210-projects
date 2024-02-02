@@ -1,5 +1,7 @@
 using System;
 
+// The additions I have made to this program that exceed core requirements are an additonal class that handle another activity.
+// I have added a Yoga Activity Class.
 class Program
 {
     static void Main(string[] args)
