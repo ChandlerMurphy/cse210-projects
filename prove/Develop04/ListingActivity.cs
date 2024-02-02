@@ -38,18 +38,8 @@ public class ListingActivity : Activity
         ShowCountDown(5);
         Console.WriteLine("");
 
-        // Now allow the user to enter data into the console to answer the question until the timer runs out.
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(_duration);
-        _count = 0;
-
-        // Make a while loop that will stop once the number of seconds passed to method have gone by.
-        while (DateTime.Now < endTime)
-        {
-            Console.Write("> ");
-            Console.ReadLine();
-            _count++;
-        }       
+        // Call the GetListFromUser() method to ask the user for responses and then count it.
+        GetListFromUser();     
 
         // Now display to the user how many responses they just entered in.
         Console.WriteLine($"You listed {_count} items.");
@@ -68,9 +58,19 @@ public class ListingActivity : Activity
         Console.WriteLine($" --- {_randomPrompt} --- ");
     }
 
-    public List<string> GetListFromUser()
+    public void GetListFromUser()
     {
-        List<string> list = new List<string>();
-        return list;
+        // Now allow the user to enter data into the console to answer the question until the timer runs out.
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_duration);
+        _count = 0;
+
+        // Make a while loop that will stop once the number of seconds passed to method have gone by.
+        while (DateTime.Now < endTime)
+        {
+            Console.Write("> ");
+            Console.ReadLine();
+            _count++;
+        }     
     }
 }

@@ -53,7 +53,7 @@ class Program
                 // Using the ListingActivity class we can construct both the ListingActivity and Activity classes.
                 ListingActivity listingActivity = new ListingActivity();
 
-                // Now all we do is initiate the Run() method from the Listing class and to begin the Listing Activity.
+                // Now all we do is initiate the Run() method from the Listing class to begin the Listing Activity.
                 listingActivity.Run();
             }
 
@@ -61,6 +61,10 @@ class Program
             else if (userInput == "4")
             {
                 // Using the YogaActivity class we can construct both the YogaActivity and Activity clases.
+                YogaActivity yogaActivity = new YogaActivity();
+
+                // Now all we do is initiate the Run() method from the Yoga class to begin the Yoga Activity.
+                yogaActivity.Run(); 
             }
         }
     }
