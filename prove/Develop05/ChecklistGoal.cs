@@ -13,6 +13,13 @@ public class ChecklistGoal : Goal
         _amountCompleted = 0;
     }
 
+    public ChecklistGoal (string name, string description, string points, string bonus, string amountCompleted, string target) : base (name, description, points)
+    {
+        _target = int.Parse(target);
+        _bonus = int.Parse(bonus);
+        _amountCompleted = int.Parse(amountCompleted);
+    }
+
     public override int RecordEvent()
     {
         _amountCompleted++;
@@ -48,11 +55,11 @@ public class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        return $"[ ] {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
+        return $"[{IsComplete()}] {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
     }
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"ChecklistGoal~~{_shortName}~~{_description}~~{_points}~~{_bonus}~~{_amountCompleted}~~{_target}";
     }
 }

@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 public class GoalManager 
 {
     private List<Goal> _goals;
@@ -15,6 +17,7 @@ public class GoalManager
 
         while (_userInput != "6")
         {
+            Console.WriteLine("\n-----------------------------------------------------\n");
             DisplayPlayerInfo();
 
             Console.WriteLine("Menu Options: ");
@@ -37,11 +40,11 @@ public class GoalManager
             }
             else if (_userInput == "3")
             {
-
+                SaveGoals();
             }
             else if (_userInput == "4")
             {
-
+                LoadGoals();
             }
             else if (_userInput == "5")
             {
@@ -52,7 +55,9 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-        Console.WriteLine($"\nYou have {_score} points.\n");
+        LevelBar levelBar = new LevelBar();
+        levelBar.GetLevel(_score);
+        Console.WriteLine($"You have {_score} points.\n");
     }
 
     public void ListGoalNames()
@@ -148,11 +153,50 @@ public class GoalManager
 
     public void SaveGoals()
     {
+        Console.Write("What is the filename for the goal file? ");
+        string _goalFile = Console.ReadLine();
 
+        using (StreamWriter outputFile = new StreamWriter(_goalFile))
+        {
+            outputFile.WriteLine(_score);
+            
+            foreach (Goal goal in _goals)
+            {
+                outputFile.WriteLine(goal.GetStringRepresentation());
+            }
+        }
     }
 
     public void LoadGoals()
     {
-        
+        Console.Write("What is the filename for the goal file? ");
+        string _goalFile = Console.ReadLine();
+
+        string[] lines = System.IO.File.ReadAllLines(_goalFile);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("~~");
+
+            if (parts[0] == "SimpleGoal")
+            {
+                SimpleGoal simpleGoal = new SimpleGoal(parts[1], parts[2], parts[3], parts[4]);
+                _goals.Add(simpleGoal);
+            }
+            else if (parts[0] == "EternalGoal")
+            {
+                EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], parts[3]);
+                _goals.Add(eternalGoal);
+            }
+            else if (parts[0] == "ChecklistGoal")
+            {
+                ChecklistGoal checklistGoal = new ChecklistGoal(parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
+                _goals.Add(checklistGoal);
+            }
+            else
+            {
+                _score = int.Parse(parts[0]);
+            }
+        }       
     }
 }

@@ -7,6 +7,11 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
+    public SimpleGoal (string name, string description, string points, string isComplete) : base (name, description, points)
+    {
+        _isComplete = Convert.ToBoolean(isComplete);
+    }
+
     public override int RecordEvent()
     {
         if (_isComplete == false)
@@ -36,6 +41,6 @@ public class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"SimpleGoal~~{_shortName}~~{_description}~~{_points}~~{_isComplete}";
     }
 }
