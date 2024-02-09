@@ -1,4 +1,0 @@
-8056
-SimpleGoal~~test~~test~~56~~True
-EternalGoal~~Eternal Goal~~ttest~~1000
-EternalGoal~~Eternal Goal~~ttest~~1000
