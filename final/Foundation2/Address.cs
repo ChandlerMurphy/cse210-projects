@@ -22,12 +22,12 @@ public class Address
         }
     }
 
-    public bool USresidence()
+    public bool CheckUSResidency()
     {
         return _USresidence;
     }
 
-    public string GetAddress()
+    public string GetFullAddress()
     {
         return $"{_streetAddress} etc";
     }

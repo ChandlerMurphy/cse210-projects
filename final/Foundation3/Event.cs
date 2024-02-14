@@ -12,11 +12,6 @@ public class Event
 
     }
 
-    protected void GenerateFullDetails()
-    {
-
-    }
-
     protected void GenerateShortDescription()
     {
 

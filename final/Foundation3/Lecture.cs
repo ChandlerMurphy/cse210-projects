@@ -5,6 +5,6 @@ public class Lecture : Event
 
     public void GetFullDetails()
     {
-        GenerateFullDetails();
+
     }
 }

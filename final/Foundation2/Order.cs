@@ -2,6 +2,7 @@ public class Order
 {
     private List<Product> products;
     private Customer _customer;
+    private double _totalCost;
     private string _packingLabel;
     private string _shippingLabel;
 

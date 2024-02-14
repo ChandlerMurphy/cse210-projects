@@ -6,6 +6,6 @@ public class Outdoor : Event
 
     public void GetFullDetails()
     {
-        GenerateFullDetails();
+
     }
 }

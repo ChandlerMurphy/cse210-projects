@@ -4,6 +4,6 @@ public class Reception : Event
 
     public void GetFullDetails()
     {
-        GenerateFullDetails();
+        
     }
 }
