@@ -1,6 +1,9 @@
 using System;
 using System.Security.Cryptography.X509Certificates;
 
+// I have completed the first two Foundation 4 projects to their fullest extent following the principles of Abstraction and Encapsulation. 
+// Methods are used for getting or setting variables and also determining other variables.
+
 class Program
 {
     static void Main(string[] args)

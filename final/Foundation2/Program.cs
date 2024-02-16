@@ -1,10 +1,7 @@
 using System;
 
-// Once you have created these classes, write a program that creates at least two orders with a 2-3 products each. 
-// Call the methods to get the packing label, the shipping label, and the total price of the order, and 
-// display the results of these methods.
-
-
+// I have completed the first two Foundation 4 projects to their fullest extent following the principles of Abstraction and Encapsulation. 
+// Methods are used for getting or setting variables and also determining other variables.
 
 class Program
 {
