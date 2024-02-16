@@ -11,6 +11,16 @@ public class Customer
 
     public bool DetermineResidence()
     {
-        return _address.USresidence();
+        return _address.CheckUSResidency();
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public Address GetAddress()
+    {
+        return _address;
     }
 }

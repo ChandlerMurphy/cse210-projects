@@ -4,7 +4,6 @@ public class Product
     private string _productID;
     private int _price;
     private int _quantity;
-    private double _totalCost;
 
     public Product (string name, string productID, int price, int quantity)
     {
@@ -16,6 +15,16 @@ public class Product
 
     public int CalculateTotalPrice()
     {
-        return 0;
+        return _price * _quantity;
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public string GetProductID()
+    {
+        return _productID;
     }
 }

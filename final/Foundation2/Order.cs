@@ -1,10 +1,8 @@
 public class Order
 {
-    private List<Product> products;
+    private List<Product> products = new List<Product>();
     private Customer _customer;
     private double _totalCost;
-    private string _packingLabel;
-    private string _shippingLabel;
 
     public Order(Customer customer)
     {
@@ -13,37 +11,53 @@ public class Order
 
     public void AddProductToOrder(Product product)
     {
-
+        products.Add(product);
     }
 
-    public string CalculateTotalOrderCost()
+    public void CalculateTotalOrderCost()
     {
-        return "";
+        double totalCost = 0;
+        foreach (Product product in products)
+        {
+            double price = product.CalculateTotalPrice();
+            totalCost = totalCost + price;
+        }
+        double _shippingCost = DetermineShippingCost();
+        _totalCost = totalCost + _shippingCost;
+
+        Console.WriteLine("Order Total: ");
+        Console.WriteLine($"Total Cost: ${_totalCost}\n");
     }
 
     public void CreatePackingLabel()
     {
-
-    }
-
-    public string GetPackingLabel() 
-    {
-        return _packingLabel;
+        Console.WriteLine("Packing Label: ");
+        foreach(Product product in products)
+        {
+            Console.WriteLine($"{product.GetName()} ~ {product.GetProductID()}");
+        }
+        Console.WriteLine("");
     }
 
     public void CreateShippingLabel()
     {
-
-    }
-
-    public string GetShippingLabel() 
-    {
-        return _shippingLabel;
+        Console.WriteLine("Shipping Label: ");
+        Console.WriteLine($"{_customer.GetName()} ~ {_customer.GetAddress()}\n");
     }
 
     public int DetermineShippingCost()
     {
-        return 0;
+        bool USresidency = _customer.DetermineResidence();
+        int _shippingCost = 0;
+        if(USresidency)
+        {
+            _shippingCost = 5;
+        } else 
+        {
+            _shippingCost = 35;
+        }
+
+        return _shippingCost;
     }
 
 }
