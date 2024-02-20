@@ -1,21 +1,27 @@
 public class Activity 
 {
     protected string _date;
-    protected int _length;
+    protected float _length;
 
-    public virtual string GetDistance()
+    public Activity (string date, string length)
     {
-        return "";
+        _date = date;
+        _length = int.Parse(length);
     }
 
-    public virtual string GetString()
+    public virtual double GetDistance()
     {
-        return "";
+        return 0;
     }
 
-    public virtual string  GetPace()
+    public virtual double GetSpeed()
     {
-        return "";
+        return 0;
+    }
+
+    public virtual double GetPace()
+    {
+        return 0;
     }
 
     public virtual string GetSummary()
